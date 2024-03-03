@@ -53,7 +53,7 @@ def asciiConvert(image, type, saveas, scale):
     art.close()
 
 if __name__ == '__main__':
-    asciiConvert("mona_lisa.jpg", "jpg", "mona_lisa.txt", "3")
+    asciiConvert("perfil.jpeg", "jpeg", "perfil.txt", "3")
 
 
 
