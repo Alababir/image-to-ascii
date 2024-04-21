@@ -1,13 +1,13 @@
 from PIL import Image
 def asciiConvert(image, type, saveas, scale):
-    scale = 5
+    scale = 2
 
     # Abre e pega o tamanho
     img = Image.open(image)
     w,h = img.size
 
     # resize da imagem (reduz)
-    img.resize((w//scale * 2.5, h//scale)).save("resized.%s" % type)
+    img.resize((w//scale * 4, h//scale)).save("resized.%s" % type)
 
     # Abre a imagem
     img = Image.open("resized.%s" % type)
@@ -29,17 +29,17 @@ def asciiConvert(image, type, saveas, scale):
             elif sum(pix[x,y]) in range(1,100):
                 grid[y][x] = "X"
             elif sum(pix[x,y]) in range(100,200):
-                grid[y][x] = "@"
-            elif sum(pix[x,y]) in range(200,300):
                 grid[y][x] = "#"
-            elif sum(pix[x,y]) in range(300,400):
-                grid[y][x] = "()"
-            elif sum(pix[x,y]) in range(400,500):
-                grid[y][x] = "+"
-            elif sum(pix[x,y]) in range(500,600):
-                grid[y][x] = "/"
-            elif sum(pix[x,y]) in range(600,700):
+            elif sum(pix[x,y]) in range(200,300):
                 grid[y][x] = "i"
+            elif sum(pix[x,y]) in range(300,400):
+                grid[y][x] = ")"
+            elif sum(pix[x,y]) in range(400,500):
+                grid[y][x] = "/"
+            elif sum(pix[x,y]) in range(500,600):
+                grid[y][x] = "+"
+            elif sum(pix[x,y]) in range(600,700):
+                grid[y][x] = "*"
             elif sum(pix[x,y]) in range(700,750):
                 grid[y][x] = "'"
             else:
@@ -53,7 +53,7 @@ def asciiConvert(image, type, saveas, scale):
     art.close()
 
 if __name__ == '__main__':
-    asciiConvert("cr7.jpg", "jpg", "output.txt", "1")
+    asciiConvert("perfil.jpeg", "jpeg", "output.txt", "1")
 
 
 
