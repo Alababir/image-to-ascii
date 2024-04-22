@@ -7,7 +7,7 @@ def asciiConvert(image, type, saveas, scale):
     w,h = img.size
 
     # resize da imagem (reduz)
-    img.resize((w//scale * 4, h//scale)).save("resized.%s" % type)
+    img.resize((w//scale * 2, h//scale)).save("resized.%s" % type)
 
     # Abre a imagem
     img = Image.open("resized.%s" % type)
@@ -52,8 +52,10 @@ def asciiConvert(image, type, saveas, scale):
 
     art.close()
 
+img = str(input('Nome do arquivo:'))
+fot = str(input('Qual o formato? '))
 if __name__ == '__main__':
-    asciiConvert("perfil.jpeg", "jpeg", "output.txt", "1")
+    asciiConvert(img, fot, "output.txt", "1")
 
 
 
